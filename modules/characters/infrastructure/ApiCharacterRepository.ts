@@ -6,7 +6,7 @@ import ApiClient from '@/infrastructure/api/ApiClient'
 export function apiCharacterRepository(): CharacterRepository {
 	const apiClient = new ApiClient(process.env.NEXT_PUBLIC_BASE_URL, getBaseParams())
 
-	async function get(params: GetCharacterByIdParams): Promise<any> {
+	async function get(params: GetCharacterByIdParams): Promise<CharacterDataResponse> {
 		const response = await apiClient.get(`/characters/${params.characterId}`)
 		return response.data
 	}
