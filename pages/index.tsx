@@ -9,11 +9,9 @@ export interface HomePageProps {
 
 export default function HomePage({ characters }: HomePageProps): JSX.Element {
   return (
-    <main>
-      <div className={styles.characterListContainer}>
-        <CharacterList characters={characters} />
-      </div>
-    </main>
+    <div className={styles.characterListContainer}>
+      <CharacterList characters={characters} />
+    </div>
   )
 }
 

@@ -9,11 +9,11 @@ export interface CharacterPageProps {
   comics: Comic[]
 }
 
-export default function Character({
+export default function CharacterPage({
   character,
   comics
 }: CharacterPageProps): JSX.Element {
-  return <CharacterDetail character={character} />
+  return <CharacterDetail character={character} comics={comics} />
 }
 
 export async function getStaticPaths() {
@@ -44,10 +44,11 @@ export async function getStaticProps({
     await getCharacterById(params),
     await getAllComicsByCharacterId(params)
   ])
+  debugger
   return {
     props: {
       character: characterByIdResult.results[0],
-      commics: comicsByCharacterIdResult.results
+      comics: comicsByCharacterIdResult.results
     }
   }
 }

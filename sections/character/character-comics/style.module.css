@@ -1,0 +1,20 @@
+.characterComicsWrapper {
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+    overflow-y: hidden;
+    overflow-x: auto;
+    justify-content: space-between;
+    column-gap: 1em;
+    padding: 1em;
+}
+.characterComic {
+    width: 200px;
+}
+.characterComic h4 {
+    margin-bottom: 5px;
+    margin-top: 0;
+}
+.characterComicsWrapper ::-webkit-scrollbar-track {
+    background: red; /* Color de fondo del track */
+  }

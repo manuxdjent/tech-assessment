@@ -1,9 +1,14 @@
 .characterDetailWrapper {
-    display: flex;
     background-color: black;
-    color: white;
-    padding-left: 20em;
-    padding-right: 20em;
+}
+.characterDetailInfo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(189px, 1fr));
+    grid-gap: 1em;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    background-color: black;
 }
 .characterDetailWrapper h2 {
     font-weight: bold;
@@ -12,9 +17,22 @@
     display: flex;
     flex-direction: column;
     padding: 50px;
+    color: white;
 }
 .descriptionTitleWrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.characterDetailImage {
+    width: 100%;
+}
+.characterComicsWrapper {
+    background-color: white;
+    margin: 1.5em auto;
+    max-width: 1200px;
+}
+.characterComicsWrapper h3 {
+    margin-top: 0;
+    padding-top: 1em;
 }

@@ -3,6 +3,7 @@
 }
 .image {
     border-bottom: 5px solid red;
+    width: 100%;
 }
 .cardBottom {
     display: flex;
