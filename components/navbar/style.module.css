@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    background-color: black;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.favoriteFilterWrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 100px;
+}
+.marvelLogoWrapper {
+    margin-left: 100px;
+}

@@ -1,0 +1,14 @@
+.searchBarContainer {
+    flex: 1;
+}
+
+.characterList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 189px);
+    grid-gap: .5em;
+    justify-content: space-between;
+}
+
+.characterList a {
+    text-decoration: none;
+}
