@@ -1,9 +1,9 @@
 import { Character } from '@/modules/characters/domain/Character'
 import Image from 'next/image'
 import style from './style.module.css'
-import { FavoriteButton } from '@/components/favorite-button/FavoriteButton'
 import { useAppContext } from '@/context/AppContext'
 import { getImageSrc } from '@/utils/HelperUtils'
+import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
 
 interface CharacterProps {
   character: Character

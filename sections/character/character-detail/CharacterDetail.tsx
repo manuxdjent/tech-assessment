@@ -2,9 +2,9 @@ import { Character, Comic } from '@/modules/characters/domain/Character'
 import { getImageSrc } from '@/utils/HelperUtils'
 import Image from 'next/image'
 import style from './style.module.css'
-import { FavoriteButton } from '@/components/favorite-button/FavoriteButton'
 import { useAppContext } from '@/context/AppContext'
 import CharacterComics from '../character-comics/CharacterComics'
+import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
 
 export interface CharacterDetailProps {
   character: Character

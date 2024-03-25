@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app'
-import Layout from '@/components/layout/Layout'
 import AppContext from '@/context/AppContext'
 import { useState } from 'react'
 import '../styles/global.css'
+import Layout from '@/common/components/layout/Layout'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const [favoriteCharacterIds, setFavoriteCharacterIds] = useState<string[]>([])

@@ -1,4 +1,3 @@
-import { SearchBar } from '@/components/search-bar/SearchBar'
 import { Character } from '@/modules/characters/domain/Character'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -7,6 +6,7 @@ import { GetAllCharacterParams } from '@/modules/characters/domain/CharacterRepo
 import { CharacterCard } from '../character-card/CharacterCard'
 import { getAllCharacters } from '@/modules/characters/application/get-all/GetAllCharacters'
 import { useAppContext } from '@/context/AppContext'
+import { SearchBar } from '@/common/components/search-bar/SearchBar'
 
 interface CharacterListProps {
   characters: Character[]

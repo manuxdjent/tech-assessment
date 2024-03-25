@@ -1,7 +1,6 @@
-import { Character } from "../../domain/Character";
-import { CharacterDataResponse } from "../../domain/CharacterDataResponse";
-import { GetAllCharacterParams } from "../../domain/CharacterRepository";
-import { apiCharacterRepository } from "../../infrastructure/ApiCharacterRepository";
+import { CharacterDataResponse } from '@/modules/characters/domain/CharacterDataResponse'
+import { GetAllCharacterParams } from '@/modules/characters/domain/CharacterRepository'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/ApiCharacterRepository'
 
 export function getAllCharacters(
     params: GetAllCharacterParams

@@ -1,5 +1,6 @@
 .characterDetailWrapper {
     background-color: black;
+    clip-path: polygon(100% 0, 100% 92%, 94% 100%, 0 100%, 0 0);
 }
 .characterDetailInfo {
     display: grid;
