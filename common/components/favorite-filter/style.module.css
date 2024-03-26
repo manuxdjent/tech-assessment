@@ -1,4 +1,4 @@
 .favoriteCharactersCountLabel {
-    color: white;
+    color: var(--color-white);
     margin-left: 10px;
 }

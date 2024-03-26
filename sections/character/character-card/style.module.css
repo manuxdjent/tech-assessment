@@ -1,3 +1,4 @@
+
 .cardWrapper {
     margin-bottom: .5em;
 }
@@ -10,8 +11,8 @@
     justify-content: space-evenly;
     overflow: hidden;
     height: 60px;
-    color: white;
-    background-color: black;
+    color: var(--color-white);
+    background-color: var(--color-black);
     margin-top: -5px;
     align-items: center;
     clip-path: polygon(100% 0, 100% 80%, 90% 100%, 0 100%, 0 0);
