@@ -49,22 +49,22 @@ Instalación:
 cd tech-assesment
 npm i
 ```
-Ejecución:
+Ejecución de servidor de desarrollo local:
 ```bash
-# Modo desarrollo en cliente
 npm run dev
 ```
+
+Generación de la aplicación para producción:
+```bash
+npm run build
+```
+
 Ejecución de tests:
 ```bash
 npm run test
 ```
 
-Ejecución para producción:
-```bash
-npm run build
-```
-
-Ejecutar lint:
+Ejecutar herramienta de linting:
 ```bash
 npm run lint
 ```
