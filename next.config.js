@@ -12,6 +12,10 @@ module.exports = {
       }
     ]
   },
+  experimental: {
+    // Character list page endpoint with limit of 50 items exceed NextJS default threshold, it would be interesting to implement pagination but 'characters' endpoint dont allow it
+    largePageDataBytes: 250 * 1000
+  },
   async rewrites() {
     return [
       {
