@@ -11,7 +11,7 @@ También es posible ver el detalle de un personaje en concreto, se muestra su no
 ## Principales tecnologías
 
 - **React**: Se estableció como requisito para el desarollo de la interfaz de usuario, en concreto se ha usado la versión 18, la cual es la última release estable, añadiendo seguridad y confiabilidad para su uso en entornos de producción.
-- **Next.js**: Next.js fue utilizado como el marco de trabajo de React. Ofrece características como renderización del lado del servidor (SSR), generación de páginas estáticas, enrutamiento simple, y una estructura de proyecto bien definida que facilita el desarrollo escalable.
+- **Next.js**: Next.js fue utilizado como el marco de trabajo de React. Ofrece características como renderización del lado del servidor (SSR), generación de páginas estáticas, enrutamiento simple, y una estructura de proyecto bien definida que facilita el desarrollo escalable. También se ha optado por su sistema por defecto integrado de caché en componentes, API e imágenes.
 - **Vitest**: Para la realización de tests unitarios se optó por usar Vitest. Es una de las recomendaciones de NextJS para el desarrollo de test unitarios. En este caso se utilizó por su facilidad en cuanto a configuración, su rapidez a la hora de lanzar los tests, ya que tiene la capacidad de lanzar tests en paralelo. También se utilizó por ser similar en cuanto a sintaxis a Jest.
 
 ## Estructura
