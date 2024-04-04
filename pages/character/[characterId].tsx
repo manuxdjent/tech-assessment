@@ -4,7 +4,7 @@ import { getCharacterById } from '@/modules/characters/application/get/GetCharac
 import { Character, Comic } from '@/modules/characters/domain/Character'
 import { CharacterDetail } from '@/sections/character/character-detail/CharacterDetail'
 import { GetStaticPathsResult, GetStaticPropsResult } from 'next'
-import { GetStaticPropsResultProps } from './character.model'
+import { GetStaticPropsResultProps } from '../../models/character-page.model'
 
 export interface CharacterPageProps {
   character: Character
