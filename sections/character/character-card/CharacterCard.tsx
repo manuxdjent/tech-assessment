@@ -5,7 +5,7 @@ import { useAppContext } from '@/context/AppContext'
 import { getImageSrc } from '@/utils/HelperUtils'
 import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
 import { useEffect, useState } from 'react'
-import { isCharacterFavorite } from './CharacterCard.logic'
+import { isCharacterFavorite, getFavoriteCharacterIds } from './CharacterCard.logic'
 
 interface CharacterProps {
   character: Character
@@ -19,21 +19,9 @@ export function CharacterCard({ character }: CharacterProps): JSX.Element {
     setActiveFavoriteButton(isCharacterFavorite(favoriteCharacterIds, character.id))
   }, [character.id, favoriteCharacterIds])
 
-  const onFavoriteButtonClick = (event: React.MouseEvent<HTMLElement>): void => {
-    event.preventDefault()
-    let favoriteCharacterIdsNewValue: string[] = []
-    const isCharacterAlreadyAddedAsFavorite: boolean = favoriteCharacterIds.some(
-      (favoriteCharacterId) => favoriteCharacterId === character.id
-    )
-    if (isCharacterAlreadyAddedAsFavorite) {
-      favoriteCharacterIdsNewValue = favoriteCharacterIds.filter(
-        (favoriteCharacterId) => favoriteCharacterId !== character.id
-      )
-    } else {
-      favoriteCharacterIdsNewValue = favoriteCharacterIds.concat(character.id)
-    }
-    setFavoriteCharacterIds(favoriteCharacterIdsNewValue)
-  }
+  const onFavoriteButtonClick = (
+    event: React.MouseEvent<HTMLElement>
+    ) => setFavoriteCharacterIds(getFavoriteCharacterIds(favoriteCharacterIds, character.id, event))
 
   return (
     <div className={style.cardWrapper}>
