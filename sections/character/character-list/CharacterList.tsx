@@ -2,11 +2,10 @@ import { Character } from '@/modules/characters/domain/Character'
 import Link from 'next/link'
 import { useState } from 'react'
 import style from './style.module.css'
-import { GetAllCharacterParams } from '@/modules/characters/domain/CharacterRepository'
 import { CharacterCard } from '../character-card/CharacterCard'
-import { getAllCharacters } from '@/modules/characters/application/get-all/GetAllCharacters'
 import { useAppContext } from '@/context/AppContext'
 import { SearchBar } from '@/common/components/search-bar/SearchBar'
+import { getAllCharactersByName, getFilteredCharacterList, getTotalLabel } from './CharacterList.logic'
 
 interface CharacterListProps {
   characters: Character[]
@@ -17,24 +16,12 @@ export function CharacterList({ characters }: CharacterListProps): JSX.Element {
   const { isfavoriteCharactersFilteringActive, favoriteCharacterIds } =
     useAppContext()
 
-  const filteredCharacterList: Character[] = isfavoriteCharactersFilteringActive
-    ? characterList.filter((character) =>
-        favoriteCharacterIds.some(
-          (favoriteCharacterId) => favoriteCharacterId === character.id
-        )
-      )
-    : characterList
+  const filteredCharacterList: Character[] = getFilteredCharacterList(isfavoriteCharactersFilteringActive, characterList, favoriteCharacterIds)
 
-  const totalLabel: string = `${filteredCharacterList.length} RESULTS`
+  const totalLabel: string = getTotalLabel(filteredCharacterList)
 
-  const onSearch = async (query: string): Promise<void> => {
-    const params: GetAllCharacterParams = {
-      limit: 50
-    }
-    if (query) {
-      params.name = query
-    }
-    const response = await getAllCharacters(params)
+  const onSearch = async (query: string) => {
+    const response = await getAllCharactersByName(query)
     if (response) {
       setCharactersList(response.results)
     }
