@@ -36,6 +36,11 @@ Para que la aplicación fuese responsive se optó por usar CSS grid para la estr
 
 3. **Optimización y Despliegue**: Se optimizó el rendimiento de la aplicación según fuera necesario. Finalmente, la aplicación se preparó para el despliegue en un entorno de producción, ya sea localmente o en un servidor en la nube, en éste caso para mostrar la aplicación se ha usado Vercel por su compatibilidad con NextJS.
 
+## Uso de caché
+Por defecto, Next.js almacena en caché tanto como sea posible para mejorar el rendimiento y reducir costos. Esto significa que las rutas se renderizan estáticamente y las solicitudes de datos se almacenan en caché a menos que optes por no hacerlo, en este proyecto se decidió hacer uso de la cache por defecto en todas las llamadas.
+Para comprobar el uso de caché por parte de NextJS, al tener componentes usando SSR, el manejo de la caché se gestiona en el servidor.
+
+
 ## Ejecución del Proyecto
 
 Clonar el repositorio:
@@ -78,6 +83,4 @@ NEXT_PUBLIC_PUBLIC_KEY=your_public_key
 ```
 
 ## Mejoras
-- Optimizar la carga de componentes minimizando llamadas innecesarias usando la caché del navegador.
-- Separar la lógica de la presentación en 'sections/character' y en 'common/components'.
 - Aumentar el coverage del testing.
