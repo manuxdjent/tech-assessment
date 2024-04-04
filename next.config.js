@@ -27,10 +27,11 @@ module.exports = {
   async headers() {
     return [
       {
+        source: '/*',
         headers: [
           {
-            key: "Cache-Control",
-            value: "s-maxage=300, stale-while-revalidate=59",
+            key: 'Cache-Control',
+            value: 's-maxage=300, stale-while-revalidate=59',
           },
         ]
       }
