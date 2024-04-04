@@ -69,6 +69,14 @@ Ejecutar herramienta de linting:
 npm run lint
 ```
 
+## Configuración de variables del entorno
+Antes de ejecutar la aplicación localmente, asegúrate de configurar correctamente las variables de entorno necesarias. Crea un archivo llamado .env.local en la raíz del proyecto y proporciona los valores adecuados para cada variable.
+```plaintext
+NEXT_PUBLIC_BASE_URL=https://api.marvel.com/v1
+NEXT_PUBLIC_PRIVATE_KEY=your_private_key
+NEXT_PUBLIC_PUBLIC_KEY=your_public_key
+```
+
 ## Mejoras
 - Optimizar la carga de componentes minimizando llamadas innecesarias usando la caché del navegador.
 - Separar la lógica de la presentación en 'sections/character' y en 'common/components'.
