@@ -38,7 +38,18 @@ Para que la aplicación fuese responsive se optó por usar CSS grid para la estr
 
 ## Uso de caché
 Por defecto, Next.js almacena en caché tanto como sea posible para mejorar el rendimiento y reducir costos. Esto significa que las rutas se renderizan estáticamente y las solicitudes de datos se almacenan en caché a menos que optes por no hacerlo, en este proyecto se decidió hacer uso de la cache por defecto en todas las llamadas.
-Para comprobar el uso de caché por parte de NextJS, al tener componentes usando SSR, el manejo de la caché se gestiona en el servidor.
+````
+{
+    source: '/(.*)',
+    headers: [
+        {
+        key: 'Cache-Control',
+        value: 's-maxage=300, stale-while-revalidate=59',
+        },
+    ]
+}
+````
+Mediante esta configuración, se verifica que se ha establecido el uso de caché añadiendo la cabecera correspondiente y estableciendo 's-maxage=300' (tiempo máximo de vida) y 'stale-while-revalidate=59' para cuando se solicita un recurso que está almacenado en caché y la versión en caché ha alcanzado su tiempo máximo de vida (max-age), la directiva stale-while-revalidate permite que el cliente utilice la versión obsoleta de la respuesta mientras se solicita una nueva versión actualizada al servidor de origen en segundo plano.
 
 
 ## Ejecución del Proyecto
