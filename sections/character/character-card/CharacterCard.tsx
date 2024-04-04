@@ -5,7 +5,7 @@ import { useAppContext } from '@/context/AppContext'
 import { getImageSrc } from '@/utils/HelperUtils'
 import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
 import { useEffect, useState } from 'react'
-import { isCharacterFavorite, getFavoriteCharacterIds } from './CharacterCard.logic'
+import { getFavoriteCharacterIds, isCharacterFavorite } from '@/utils/CommonUtils'
 
 interface CharacterProps {
   character: Character
@@ -21,7 +21,10 @@ export function CharacterCard({ character }: CharacterProps): JSX.Element {
 
   const onFavoriteButtonClick = (
     event: React.MouseEvent<HTMLElement>
-    ) => setFavoriteCharacterIds(getFavoriteCharacterIds(favoriteCharacterIds, character.id, event))
+    ) => {
+      event.preventDefault()
+      setFavoriteCharacterIds(getFavoriteCharacterIds(favoriteCharacterIds, character.id))
+    }
 
   return (
     <div className={style.cardWrapper}>

@@ -5,6 +5,8 @@ import style from './style.module.css'
 import { useAppContext } from '@/context/AppContext'
 import CharacterComics from '../character-comics/CharacterComics'
 import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
+import { getFavoriteCharacterIds, isCharacterFavorite } from '@/utils/CommonUtils'
+import { useEffect, useState } from 'react'
 
 export interface CharacterDetailProps {
   character: Character
@@ -16,23 +18,19 @@ export function CharacterDetail({
   comics
 }: CharacterDetailProps): JSX.Element {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useAppContext()
-  const isCharacterFavorite: boolean = favoriteCharacterIds.some(
-    (favoriteCharacter) => favoriteCharacter === character.id
-  )
-  const onFavoriteButtonClick = (): void => {
-    let favoriteCharacterIdsNewValue: string[] = []
-    const isCharacterAlreadyAddedAsFavorite: boolean = favoriteCharacterIds.some(
-      (favoriteCharacterId) => favoriteCharacterId === character.id
-    )
-    if (isCharacterAlreadyAddedAsFavorite) {
-      favoriteCharacterIdsNewValue = favoriteCharacterIds.filter(
-        (favoriteCharacterId) => favoriteCharacterId !== character.id
-      )
-    } else {
-      favoriteCharacterIdsNewValue = favoriteCharacterIds.concat(character.id)
+  const [ activeFavoriteButton, setActiveFavoriteButton ] = useState<boolean>(false)
+
+  useEffect(() => {
+    setActiveFavoriteButton(isCharacterFavorite(favoriteCharacterIds, character.id))
+  }, [character.id, favoriteCharacterIds])
+
+  
+  const onFavoriteButtonClick = (
+    event: React.MouseEvent<HTMLElement>
+    ) => {
+      event.preventDefault()
+      setFavoriteCharacterIds(getFavoriteCharacterIds(favoriteCharacterIds, character.id))
     }
-    setFavoriteCharacterIds(favoriteCharacterIdsNewValue)
-  }
 
   return (
     <>
@@ -49,7 +47,7 @@ export function CharacterDetail({
             <div className={style.descriptionTitleWrapper}>
               <h2>{character.name}</h2>
               <FavoriteButton
-                active={isCharacterFavorite}
+                active={activeFavoriteButton}
                 onClick={onFavoriteButtonClick}
               />
             </div>
