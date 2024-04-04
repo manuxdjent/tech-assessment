@@ -8,8 +8,8 @@ export default function FavoriteFitler(): JSX.Element {
     setIsfavoriteCharactersFilteringActive,
     favoriteCharacterIds
   } = useAppContext()
-  const favoriteCharactersCount = favoriteCharacterIds.length
-  const onFavoriteIconButtonClick = () =>
+  const favoriteCharactersCount: number = favoriteCharacterIds.length
+  const onFavoriteIconButtonClick = (): void | {} =>
     setIsfavoriteCharactersFilteringActive(!isfavoriteCharactersFilteringActive)
   return (
     <>

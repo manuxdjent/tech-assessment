@@ -7,7 +7,7 @@ export default class ApiClient {
         this.baseParams = baseParams
     }
 
-    async get<T>(endpoint: string, params?: T) {
+    async get<T, R>(endpoint: string, params?: T): Promise<R> {
         try {
             const urlSearchParams = params ? `&${new URLSearchParams(params).toString()}` : ''
             const finalParams = `${this.baseParams}${urlSearchParams}`

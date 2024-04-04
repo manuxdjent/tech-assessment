@@ -12,14 +12,14 @@ interface CharacterProps {
 export function CharacterCard({ character }: CharacterProps): JSX.Element {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useAppContext()
 
-  const isCharacterFavorite = !!favoriteCharacterIds.some(
+  const isCharacterFavorite: boolean = !!favoriteCharacterIds.some(
     (favoriteCharacterId) => favoriteCharacterId === character.id
   )
 
-  const onFavoriteButtonClick = (event: React.MouseEvent<HTMLElement>) => {
+  const onFavoriteButtonClick = (event: React.MouseEvent<HTMLElement>): void => {
     event.preventDefault()
-    let favoriteCharacterIdsNewValue = []
-    const isCharacterAlreadyAddedAsFavorite = favoriteCharacterIds.some(
+    let favoriteCharacterIdsNewValue: string[] = []
+    const isCharacterAlreadyAddedAsFavorite: boolean = favoriteCharacterIds.some(
       (favoriteCharacterId) => favoriteCharacterId === character.id
     )
     if (isCharacterAlreadyAddedAsFavorite) {

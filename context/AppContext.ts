@@ -14,7 +14,7 @@ const AppContext = createContext<AppContextType>({
     setIsfavoriteCharactersFilteringActive: () => {}
 })
 
-export function useAppContext() {
+export function useAppContext(): AppContextType {
     return useContext(AppContext)
 }
 

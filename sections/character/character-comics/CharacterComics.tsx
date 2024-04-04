@@ -1,4 +1,4 @@
-import { Comic } from '@/modules/characters/domain/Character'
+import { Comic, ComicDate } from '@/modules/characters/domain/Character'
 import { getImageSrc } from '@/utils/HelperUtils'
 import Image from 'next/image'
 import style from './style.module.css'
@@ -11,7 +11,7 @@ export default function CharacterComics({
   comics
 }: CharacterComicsProps): JSX.Element {
   const onSaleDate = (comic: Comic): string => {
-    const onSaleDateType = comic.dates.find(
+    const onSaleDateType: ComicDate | undefined = comic.dates.find(
       (date) => date.type === 'onsaleDate'
     )
     if (onSaleDateType) {

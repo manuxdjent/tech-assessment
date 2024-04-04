@@ -8,11 +8,11 @@ interface SearchBarProps {
 export function SearchBar({ search }: SearchBarProps): JSX.Element {
   const [query, setQuery] = useState<string>('')
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setQuery(e.target.value)
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     search(query)
   }

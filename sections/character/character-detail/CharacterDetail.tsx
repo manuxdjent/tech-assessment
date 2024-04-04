@@ -16,12 +16,12 @@ export function CharacterDetail({
   comics
 }: CharacterDetailProps): JSX.Element {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useAppContext()
-  const isCharacterFavorite = favoriteCharacterIds.some(
+  const isCharacterFavorite: boolean = favoriteCharacterIds.some(
     (favoriteCharacter) => favoriteCharacter === character.id
   )
-  const onFavoriteButtonClick = () => {
-    let favoriteCharacterIdsNewValue = []
-    const isCharacterAlreadyAddedAsFavorite = favoriteCharacterIds.some(
+  const onFavoriteButtonClick = (): void => {
+    let favoriteCharacterIdsNewValue: string[] = []
+    const isCharacterAlreadyAddedAsFavorite: boolean = favoriteCharacterIds.some(
       (favoriteCharacterId) => favoriteCharacterId === character.id
     )
     if (isCharacterAlreadyAddedAsFavorite) {

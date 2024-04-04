@@ -17,7 +17,7 @@ export function CharacterList({ characters }: CharacterListProps): JSX.Element {
   const { isfavoriteCharactersFilteringActive, favoriteCharacterIds } =
     useAppContext()
 
-  const filteredCharacterList = isfavoriteCharactersFilteringActive
+  const filteredCharacterList: Character[] = isfavoriteCharactersFilteringActive
     ? characterList.filter((character) =>
         favoriteCharacterIds.some(
           (favoriteCharacterId) => favoriteCharacterId === character.id
@@ -25,9 +25,9 @@ export function CharacterList({ characters }: CharacterListProps): JSX.Element {
       )
     : characterList
 
-  const totalLabel = `${filteredCharacterList.length} RESULTS`
+  const totalLabel: string = `${filteredCharacterList.length} RESULTS`
 
-  const onSearch = async (query: string) => {
+  const onSearch = async (query: string): Promise<void> => {
     const params: GetAllCharacterParams = {
       limit: 50
     }
