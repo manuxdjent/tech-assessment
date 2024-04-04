@@ -4,6 +4,8 @@ import style from './style.module.css'
 import { useAppContext } from '@/context/AppContext'
 import { getImageSrc } from '@/utils/HelperUtils'
 import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
+import { useEffect, useState } from 'react'
+import { isCharacterFavorite } from './CharacterCard.logic'
 
 interface CharacterProps {
   character: Character
@@ -11,10 +13,11 @@ interface CharacterProps {
 
 export function CharacterCard({ character }: CharacterProps): JSX.Element {
   const { favoriteCharacterIds, setFavoriteCharacterIds } = useAppContext()
+  const [ activeFavoriteButton, setActiveFavoriteButton ] = useState<boolean>(false)
 
-  const isCharacterFavorite: boolean = !!favoriteCharacterIds.some(
-    (favoriteCharacterId) => favoriteCharacterId === character.id
-  )
+  useEffect(() => {
+    setActiveFavoriteButton(isCharacterFavorite(favoriteCharacterIds, character.id))
+  }, [character.id, favoriteCharacterIds])
 
   const onFavoriteButtonClick = (event: React.MouseEvent<HTMLElement>): void => {
     event.preventDefault()
@@ -46,7 +49,7 @@ export function CharacterCard({ character }: CharacterProps): JSX.Element {
           <span>{character.name}</span>
         </div>
         <FavoriteButton
-          active={isCharacterFavorite}
+          active={activeFavoriteButton}
           onClick={onFavoriteButtonClick}
         />
       </div>
