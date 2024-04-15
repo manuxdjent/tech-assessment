@@ -1,8 +1,8 @@
 import { getBaseParams } from '@/utils/ApiUtils'
-import { CharacterRepository, GetAllCharacterParams, GetAllComicsByCharacterIdParams, GetCharacterByIdParams } from '../domain/CharacterRepository'
-import { CharacterDataResponse, ComicDataResponse } from '../domain/CharacterDataResponse'
+import { CharacterRepository, GetAllCharacterParams, GetAllComicsByCharacterIdParams, GetCharacterByIdParams } from '../../domain/CharacterRepository'
+import { CharacterDataResponse, ComicDataResponse } from '../../domain/CharacterDataResponse'
 import { CharacterDataWrapper } from './ApiCharacterRepositoryModel'
-import ApiClient from '@/infrastructure/api/ApiClient'
+import ApiClient from '@/modules/characters/infrastructure/instances/ApiClient'
 
 export function apiCharacterRepository(): CharacterRepository {
 	const apiClient = new ApiClient(process.env.NEXT_PUBLIC_BASE_URL, getBaseParams())

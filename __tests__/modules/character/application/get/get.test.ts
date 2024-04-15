@@ -1,5 +1,5 @@
 import { getCharacterById } from '@/modules/characters/application/get/GetCharacterById'
-import { apiCharacterRepository } from '@/modules/characters/infrastructure/ApiCharacterRepository'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
 import charactersResponseData from '@/tests/fixtures/charactersMockData.json'
 
 describe('[useCase] get character', () => {

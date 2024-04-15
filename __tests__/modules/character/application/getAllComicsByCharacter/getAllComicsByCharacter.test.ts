@@ -1,5 +1,5 @@
 import { getAllComicsByCharacterId } from '@/modules/characters/application/get-all-comics-by-character/GetAllComicsByCharacter'
-import { apiCharacterRepository } from '@/modules/characters/infrastructure/ApiCharacterRepository'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
 import charactersResponseData from '@/tests/fixtures/charactersMockData.json'
 import characterComicsResponseData from '@/tests/fixtures/characterComicsMockData.json'
 

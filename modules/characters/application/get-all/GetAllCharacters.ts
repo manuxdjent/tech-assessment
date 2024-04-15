@@ -1,6 +1,6 @@
 import { CharacterDataResponse } from '@/modules/characters/domain/CharacterDataResponse'
 import { GetAllCharacterParams } from '@/modules/characters/domain/CharacterRepository'
-import { apiCharacterRepository } from '@/modules/characters/infrastructure/ApiCharacterRepository'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
 
 export function getAllCharacters(
     params: GetAllCharacterParams
