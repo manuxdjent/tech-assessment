@@ -1,9 +1,9 @@
 import { ComicDataResponse } from '../../domain/CharacterDataResponse'
-import { GetAllComicsByCharacterIdParams } from '../../domain/CharacterRepository'
-import { apiCharacterRepository } from '../../infrastructure/repositories/ApiCharacterRepository'
+import { CharacterRepository, GetAllComicsByCharacterIdParams } from '../../domain/CharacterRepository'
 
 export function getAllComicsByCharacterId(
+    repository: CharacterRepository,
     params: GetAllComicsByCharacterIdParams
 ): Promise<ComicDataResponse> {
-    return apiCharacterRepository().getAllComicsByCharacterId(params)
+    return repository.getAllComicsByCharacterId(params)
 }

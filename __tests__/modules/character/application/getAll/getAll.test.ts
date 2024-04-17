@@ -3,6 +3,7 @@ import { apiCharacterRepository } from '@/modules/characters/infrastructure/repo
 import charactersResponseData from '@/tests/fixtures/charactersMockData.json'
 
 describe('[useCase] getAllCharacters', () => {
+	const repository = apiCharacterRepository()
 	afterEach(() => {
 		vi.restoreAllMocks()
 	})
@@ -12,7 +13,7 @@ describe('[useCase] getAllCharacters', () => {
 			.spyOn(apiCharacterRepository(), 'getAll' as never)
 			.mockImplementation(() => Promise.resolve(charactersResponseData))
 
-		const { results } = await getAllCharacters({
+		const { results } = await getAllCharacters(repository, {
             limit: 50
         })
 
@@ -25,7 +26,7 @@ describe('[useCase] getAllCharacters', () => {
 			.spyOn(apiCharacterRepository(), 'getAll' as never)
 			.mockImplementation(() => Promise.resolve(charactersResponseData))
 
-		const { results } = await getAllCharacters({
+		const { results } = await getAllCharacters(repository, {
             limit: 50,
 			name: characterNameMock
         })

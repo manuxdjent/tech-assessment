@@ -1,4 +1,7 @@
-import { Thumbnail } from '@/common/models/Common'
+export interface Thumbnail {
+  path: string
+  extension: string
+}
 
 export interface ComicDate {
   type: string

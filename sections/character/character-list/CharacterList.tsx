@@ -5,8 +5,11 @@ import style from './style.module.css'
 import { CharacterCard } from '../character-card/CharacterCard'
 import { useAppContext } from '@/context/AppContext'
 import { SearchBar } from '@/common/components/search-bar/SearchBar'
-import { getAllCharactersByName, getFilteredCharacterList, getTotalLabel } from './CharacterList.logic'
+import { getFilteredCharacterList, getTotalLabel } from '@/modules/characters/domain/CharacterList'
+import { getAllCharactersByName } from '@/modules/characters/application/get-all-characters-by-name/GetAllCharactersByName'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
 
+const repository = apiCharacterRepository()
 interface CharacterListProps {
   characters: Character[]
 }
@@ -21,7 +24,7 @@ export function CharacterList({ characters }: CharacterListProps): JSX.Element {
   const totalLabel: string = getTotalLabel(filteredCharacterList)
 
   const onSearch = async (query: string) => {
-    const response = await getAllCharactersByName(query)
+    const response = await getAllCharactersByName(repository, query)
     if (response) {
       setCharactersList(response.results)
     }

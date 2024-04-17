@@ -1,9 +1,9 @@
 import { CharacterDataResponse } from '@/modules/characters/domain/CharacterDataResponse'
-import { GetAllCharacterParams } from '@/modules/characters/domain/CharacterRepository'
-import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
+import { CharacterRepository, GetAllCharacterParams } from '@/modules/characters/domain/CharacterRepository'
 
 export function getAllCharacters(
+    repository: CharacterRepository,
     params: GetAllCharacterParams
 ): Promise<CharacterDataResponse> {
-    return apiCharacterRepository().getAll(params)
+    return repository.getAll(params)
 }

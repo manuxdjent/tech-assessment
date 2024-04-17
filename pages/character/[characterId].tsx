@@ -5,6 +5,9 @@ import { Character, Comic } from '@/modules/characters/domain/Character'
 import { CharacterDetail } from '@/sections/character/character-detail/CharacterDetail'
 import { GetStaticPathsResult, GetStaticPropsResult } from 'next'
 import { GetStaticPropsResultProps } from '../../models/character-page.model'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
+
+const repository = apiCharacterRepository()
 
 export interface CharacterPageProps {
   character: Character
@@ -19,7 +22,7 @@ export default function CharacterPage({
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const { results } = await getAllCharacters({
+  const { results } = await getAllCharacters(repository,{
     limit: 50
   })
 
@@ -43,8 +46,8 @@ export async function getStaticProps({
   }
 }): Promise<GetStaticPropsResult<GetStaticPropsResultProps>> {
   const [characterByIdResult, comicsByCharacterIdResult] = await Promise.all([
-    await getCharacterById(params),
-    await getAllComicsByCharacterId(params)
+    await getCharacterById(repository, params),
+    await getAllComicsByCharacterId(repository, params)
   ])
   return {
     props: {

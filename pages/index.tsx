@@ -2,6 +2,7 @@ import { getAllCharacters } from '@/modules/characters/application/get-all/GetAl
 import { Character } from '@/modules/characters/domain/Character'
 import { CharacterList } from '@/sections/character/character-list/CharacterList'
 import styles from './index.module.css'
+import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
 
 export interface HomePageProps {
   characters: Character[]
@@ -16,9 +17,7 @@ export default function HomePage({ characters }: HomePageProps): JSX.Element {
 }
 
 export async function getStaticProps() {
-  const { results } = await getAllCharacters({
-    limit: 50
-  })
+  const { results } = await getAllCharacters(apiCharacterRepository(), { limit: 50 })
 
   return {
     props: {

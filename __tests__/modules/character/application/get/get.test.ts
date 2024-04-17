@@ -3,6 +3,7 @@ import { apiCharacterRepository } from '@/modules/characters/infrastructure/repo
 import charactersResponseData from '@/tests/fixtures/charactersMockData.json'
 
 describe('[useCase] get character', () => {
+	const repository = apiCharacterRepository()
 	afterEach(() => {
 		vi.restoreAllMocks()
 	})
@@ -10,10 +11,10 @@ describe('[useCase] get character', () => {
 	test('should return a single character by id', async () => {
 		const singleCharacterMock = charactersResponseData.results[0]
 		vi
-			.spyOn(apiCharacterRepository(), 'get' as never)
+			.spyOn(repository, 'get' as never)
 			.mockImplementation(() => Promise.resolve(singleCharacterMock))
 
-		const { results } = await getCharacterById({
+		const { results } = await getCharacterById(repository, {
             characterId: String(singleCharacterMock.id)
         })
 
