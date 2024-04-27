@@ -1,4 +1,4 @@
-import { Character, Comic } from '@/modules/characters/domain/Character'
+import { Character } from '@/modules/characters/domain/models/Character'
 import { getImageSrc } from '@/utils/HelperUtils'
 import Image from 'next/image'
 import style from './style.module.css'
@@ -7,6 +7,7 @@ import CharacterComics from '../character-comics/CharacterComics'
 import { FavoriteButton } from '@/common/components/favorite-button/FavoriteButton'
 import { getFavoriteCharacterIds, isCharacterFavorite } from '@/utils/CommonUtils'
 import { useEffect, useState } from 'react'
+import { Comic } from '@/modules/characters/domain/models/Comic'
 
 export interface CharacterDetailProps {
   character: Character

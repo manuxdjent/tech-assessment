@@ -1,8 +1,8 @@
-import { CharacterDataResponse } from "../../domain/CharacterDataResponse"
-import { CharacterRepository, GetAllCharacterParams } from "../../domain/CharacterRepository"
+import { CharacterRepository, GetAllCharacterParams } from "../../domain/repositories/CharacterRepository"
 import { getAllCharacters } from "../get-all/GetAllCharacters"
+import { Character } from "../../domain/models/Character"
 
-export const getAllCharactersByName = async (repository: CharacterRepository, query: string): Promise<CharacterDataResponse> => {
+export const getAllCharactersByName = async (repository: CharacterRepository, query: string): Promise<Character[]> => {
     const params: GetAllCharacterParams = {
       limit: 50
     }

@@ -1,4 +1,4 @@
-import { Character } from '@/modules/characters/domain/Character'
+import { Character } from '@/modules/characters/domain/models/Character'
 import Link from 'next/link'
 import { useState } from 'react'
 import style from './style.module.css'
@@ -26,7 +26,7 @@ export function CharacterList({ characters }: CharacterListProps): JSX.Element {
   const onSearch = async (query: string) => {
     const response = await getAllCharactersByName(repository, query)
     if (response) {
-      setCharactersList(response.results)
+      setCharactersList(response)
     }
   }
 

@@ -1,4 +1,4 @@
-import { Comic, ComicDate } from '@/modules/characters/domain/Character'
+import { Comic, ComicDate } from "./models/Comic"
 
 export const getOnSaleDate = (comic: Comic): string => {
     const onSaleDateType: ComicDate | undefined = comic.dates.find(

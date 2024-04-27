@@ -1,8 +1,8 @@
-import { Comic } from '@/modules/characters/domain/Character'
 import { getImageSrc } from '@/utils/HelperUtils'
 import Image from 'next/image'
 import style from './style.module.css'
 import { getOnSaleDate } from '../../../modules/characters/domain/CharacterComics'
+import { Comic } from '@/modules/characters/domain/models/Comic'
 
 export interface CharacterComicsProps {
   comics: Comic[]

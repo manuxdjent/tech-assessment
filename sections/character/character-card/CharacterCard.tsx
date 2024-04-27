@@ -1,4 +1,4 @@
-import { Character } from '@/modules/characters/domain/Character'
+import { Character } from '@/modules/characters/domain/models/Character'
 import Image from 'next/image'
 import style from './style.module.css'
 import { useAppContext } from '@/context/AppContext'

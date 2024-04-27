@@ -1,11 +1,12 @@
 import { getAllComicsByCharacterId } from '@/modules/characters/application/get-all-comics-by-character/GetAllComicsByCharacter'
 import { getAllCharacters } from '@/modules/characters/application/get-all/GetAllCharacters'
 import { getCharacterById } from '@/modules/characters/application/get/GetCharacterById'
-import { Character, Comic } from '@/modules/characters/domain/Character'
+import { Character } from '@/modules/characters/domain/models/Character'
 import { CharacterDetail } from '@/sections/character/character-detail/CharacterDetail'
 import { GetStaticPathsResult, GetStaticPropsResult } from 'next'
 import { GetStaticPropsResultProps } from '../../models/character-page.model'
 import { apiCharacterRepository } from '@/modules/characters/infrastructure/repositories/ApiCharacterRepository'
+import { Comic } from '@/modules/characters/domain/models/Comic'
 
 const repository = apiCharacterRepository()
 
@@ -22,11 +23,11 @@ export default function CharacterPage({
 }
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
-  const { results } = await getAllCharacters(repository,{
+  const characters = await getAllCharacters(repository,{
     limit: 50
   })
 
-  const paths = results.map((character: Character) => ({
+  const paths = characters.map((character: Character) => ({
     params: {
       characterId: character.id.toString()
     }
@@ -45,14 +46,14 @@ export async function getStaticProps({
     characterId: string
   }
 }): Promise<GetStaticPropsResult<GetStaticPropsResultProps>> {
-  const [characterByIdResult, comicsByCharacterIdResult] = await Promise.all([
+  const [character, comics] = await Promise.all([
     await getCharacterById(repository, params),
     await getAllComicsByCharacterId(repository, params)
   ])
   return {
     props: {
-      character: characterByIdResult.results[0],
-      comics: comicsByCharacterIdResult.results
+      character,
+      comics
     }
   }
 }

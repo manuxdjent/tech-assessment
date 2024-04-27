@@ -1,4 +1,4 @@
-import { Character } from '@/modules/characters/domain/Character'
+import { Character } from './models/Character'
 
 export const getFilteredCharacterList = (
     isfavoriteCharactersFilteringActive: boolean,
