@@ -6,8 +6,8 @@ import { ComicDataResponse } from '../http/dto/ComicDTO'
 import { Character } from '../../domain/models/Character'
 import { Comic } from '../../domain/models/Comic'
 import { DataWrapper } from '../http/dto/CommonDTO'
-import characterMapper from '../mappers/characterMapper'
-import comicMapper from '../mappers/comicMapper'
+import characterMapper from '../mappers/CharacterMapper'
+import comicMapper from '../mappers/ComicMapper'
 
 export function apiCharacterRepository(): CharacterRepository {
 	const apiClient = new ApiClient(process.env.NEXT_PUBLIC_BASE_URL, getBaseParams())
