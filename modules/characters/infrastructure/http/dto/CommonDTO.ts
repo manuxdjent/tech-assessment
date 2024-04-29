@@ -1,4 +1,4 @@
-export interface CharacterDataWrapper<T> {
+export interface DataWrapper<T> {
     code: number
     status: string
     copyright: string
