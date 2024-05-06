@@ -87,8 +87,9 @@ npm run lint
 
 ## Configuración de variables del entorno
 Antes de ejecutar la aplicación localmente o desplegarla en un entorno de producción usando el script 'npm run build', asegúrate de configurar correctamente las variables de entorno necesarias. Crea un archivo llamado .env.local en la raíz del proyecto y proporciona los valores adecuados para cada variable.
+Para obtener acceso a la API es necesario registrarse en https://developer.marvel.com
 ```plaintext
-NEXT_PUBLIC_BASE_URL=https://api.marvel.com/v1
+NEXT_PUBLIC_BASE_URL=https://gateway.marvel.com:443/v1/public
 NEXT_PUBLIC_PRIVATE_KEY=your_private_key
 NEXT_PUBLIC_PUBLIC_KEY=your_public_key
 ```
